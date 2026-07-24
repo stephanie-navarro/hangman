@@ -9,8 +9,6 @@
   <body>
     <main class="game">
       <header class="game__header">
-        <h1>Hangman</h1>
-        <p class="game__subtitle">Guess the secret word to continue the hunt.</p>
       </header>
 
       <section class="game__board" id="game-board" aria-live="polite">
@@ -38,25 +36,25 @@
         <div class="keyboard" id="keyboard" role="group" aria-label="Letter keyboard"></div>
 
         <div class="actions">
-          <button type="button" id="new-game-btn" class="btn">Play again</button>
+          <button type="button" id="new-game-btn" class="btn">Try again</button>
         </div>
       </section>
 
       <div class="overlay hidden" id="win-overlay" role="dialog" aria-modal="true" aria-labelledby="win-title">
         <div class="overlay__panel">
-          <h2 id="win-title">You got it!</h2>
+          <h2 id="win-title">nice</h2>
           <p>The word was <strong id="win-word"></strong>.</p>
-          <p class="overlay__clue">⚡ Nice work — you can move on to the next clue!</p>
-          <button type="button" id="close-win-btn" class="btn">Keep playing</button>
+          <p class="overlay__clue">⚡ go find me!</p>
+          <button type="button" id="close-win-btn" class="btn">bye</button>
         </div>
       </div>
 
       <div class="overlay hidden" id="cooldown-overlay" role="dialog" aria-modal="true" aria-labelledby="cooldown-title">
         <div class="overlay__panel">
-          <h2 id="cooldown-title">Cooldown</h2>
-          <p>Too many wrong guesses. The board locks until the timer runs out.</p>
+          <h2 id="cooldown-title">naur</h2>
+          <p>too many wrong guesses. just wait a min.</p>
           <p class="timer-display" id="timer-display">1:00</p>
-          <p class="timer-hint">Try again when the countdown reaches zero.</p>
+          <p class="timer-hint">try again when the timer reaches zero</p>
         </div>
       </div>
     </main>
