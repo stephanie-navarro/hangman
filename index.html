@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hangman — Scavenger Hunt</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="game">
+      <header class="game__header">
+        <h1>Hangman</h1>
+        <p class="game__subtitle">Guess the secret word to continue the hunt.</p>
+      </header>
+
+      <section class="game__board" id="game-board" aria-live="polite">
+        <figure class="gallows" aria-hidden="true">
+          <svg viewBox="0 0 200 220" class="gallows__svg">
+            <line x1="20" y1="210" x2="180" y2="210" class="gallows__base" />
+            <line x1="50" y1="210" x2="50" y2="20" class="gallows__pole" />
+            <line x1="50" y1="20" x2="130" y2="20" class="gallows__beam" />
+            <line x1="130" y1="20" x2="130" y2="45" class="gallows__rope" />
+            <g id="hangman-parts" class="hangman-parts">
+              <circle cx="130" cy="60" r="15" class="hangman-part" data-part="head" />
+              <line x1="130" y1="75" x2="130" y2="130" class="hangman-part" data-part="body" />
+              <line x1="130" y1="90" x2="105" y2="110" class="hangman-part" data-part="left-arm" />
+              <line x1="130" y1="90" x2="155" y2="110" class="hangman-part" data-part="right-arm" />
+              <line x1="130" y1="130" x2="110" y2="170" class="hangman-part" data-part="left-leg" />
+              <line x1="130" y1="130" x2="150" y2="170" class="hangman-part" data-part="right-leg" />
+            </g>
+          </svg>
+        </figure>
+
+        <div class="word" id="word-display" aria-label="Current word"></div>
+
+        <p class="status" id="status-message">Loading…</p>
+
+        <div class="keyboard" id="keyboard" role="group" aria-label="Letter keyboard"></div>
+
+        <div class="actions">
+          <button type="button" id="new-game-btn" class="btn">Play again</button>
+        </div>
+      </section>
+
+      <div class="overlay hidden" id="win-overlay" role="dialog" aria-modal="true" aria-labelledby="win-title">
+        <div class="overlay__panel">
+          <h2 id="win-title">You got it!</h2>
+          <p>The word was <strong id="win-word"></strong>.</p>
+          <p class="overlay__clue">⚡ Nice work — you can move on to the next clue!</p>
+          <button type="button" id="close-win-btn" class="btn">Keep playing</button>
+        </div>
+      </div>
+
+      <div class="overlay hidden" id="cooldown-overlay" role="dialog" aria-modal="true" aria-labelledby="cooldown-title">
+        <div class="overlay__panel">
+          <h2 id="cooldown-title">Cooldown</h2>
+          <p>Too many wrong guesses. The board locks until the timer runs out.</p>
+          <p class="timer-display" id="timer-display">1:00</p>
+          <p class="timer-hint">Try again when the countdown reaches zero.</p>
+        </div>
+      </div>
+    </main>
+
+    <script src="game.js"></script>
+  </body>
+</html>
